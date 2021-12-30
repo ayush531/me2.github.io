@@ -1,0 +1,143 @@
+html, body {margin: 0; overflow: hidden;}
+#wrapper {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.circle {
+  width: 20vh;
+  height: 20vh;
+  background-color: #ffcc0f;
+  /* background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvKclW0Fjs6EfMHyhHaDdv6Tti8CxiQQ0rpw&usqp=CAU); */
+  border-radius: 50%;
+  /* box-shadow: -15px -10px 0 0 rgb(0 0 0 / 10%) inset, -25px -10px 0 0 rgb(0 0 0 / 10%) inset; */
+  background-size: cover;
+  animation: light 1.5s infinite alternate running, stretch-s 1.5s infinite alternate running;
+}
+.circle:hover, .planet:hover, .load:hover, .load:hover, .line:hover {
+  animation-play-state: paused;
+}
+.circle:before, .circle:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 2.5vh;
+  height: 2.5vh;
+  margin: auto;
+  border-radius: 50%;
+}
+.circle:before {
+  background-color: #e62e11;
+  animation: slide .8s infinite alternate running;
+} 
+.circle:after {
+  background-color: #3A6F99;
+  animation: slide-y .8s infinite alternate running;
+}
+.planet {
+  position: absolute;
+  width: 6vh;
+  height: 6vh;
+  background-color: #66023c;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px #66023c;
+}
+.one {animation: orbitone 3s infinite linear running;}
+.two {animation: orbittwo 6s infinite linear running;}
+.load {
+  position: absolute;
+  width: 40vh;
+  height: 30vh;
+  border: 5px solid #222;
+  border-bottom-color: black;
+  border-right-color: black;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #333, 0 0 10px #333 inset;
+  animation: rotate 1.5s infinite linear running;
+}
+
+@keyframes light {
+    from {
+      box-shadow: 0px 0px 30px #ffcc0f;
+    }
+    to {
+      box-shadow: 0px 0px 60px #ffcc0f;
+    }
+}
+@keyframes stretch-s {
+    from {
+      transform: scale(.5);
+    }
+    to {
+      transform: scale(1);
+    }
+}
+@keyframes slide {
+    from {
+      transform: translate3d(-150px, -150px, -150px);
+    }
+    to {
+      transform: translate3d(150px, 150px, 150px);
+    }
+}
+@keyframes slide-y {
+    from {
+      transform: translatey(150px);
+    }
+    to {
+      transform: translatey(-150px);
+    }
+}
+@keyframes orbitone {
+    from {
+      transform: rotate(0deg) translateX(200px);
+    }
+    to {
+      transform: rotate(360deg) translateX(200px);
+    }
+}
+@keyframes orbittwo {
+    from {
+      transform: rotate(0deg) translateX(400px);
+    }
+    to {
+      transform: rotate(360deg) translateX(400px);
+    }
+}
+@keyframes rotate {
+    from {
+      transform: rotate(0deg)
+    }
+    to {
+      transform: rotate(360deg)
+    }
+}
+.box {
+  position: absolute;
+  border: 10vh solid black;
+  width: 50vh; height: 50vh;
+  border-radius: 50%;
+  box-shadow: 0 0 50px #333, 0 0 50px #333 inset;
+}
+.line {
+  position: absolute;
+  background: red;
+  width: 10vh; height: 10vh;
+  border-radius: 50%;
+  top: 0; left: 0; right: 0; bottom: 0; margin: auto;
+  animation: test 3s infinite linear running;
+  box-shadow: 0 0 15px red, 0 0 15px red inset;
+}
+@keyframes test {
+    from {
+      transform: rotate(0deg) translateX(calc(50vh - 20vh));
+    }
+    to {
+      transform: rotate(360deg) translateX(calc(50vh - 20vh));
+    }
+}
